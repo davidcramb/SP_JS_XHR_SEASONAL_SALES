@@ -23,11 +23,12 @@ function listProdInfo (productData) {
         };
   }; //end of first for loop
 };
-
-function listDiscounts(discount) {
+// Adds discount values/options to DOM Select Element
+function seasonDiscounts(discount) {
   var DOMOutput = document.getElementById('discountSelect');
   for (var i = 0; i < discount.length; i++) {
-    DOMOutput.innerHTML += `<option>${discount[i].season_discount}</option>`;
+    var season = discount[i].season_discount;
+    DOMOutput.innerHTML += `<option value="${season}" id="${season}">${season}</option>`;
   };
 };
 
@@ -55,7 +56,7 @@ function executeJSONs() {
     category = data.categories;
 
     listProdInfo(products);
-    listDiscounts(category);
+    seasonDiscounts(category);
     };
 };
 executeJSONs()
