@@ -11,9 +11,12 @@ function listProdInfo (productData) {
     var curPrice = productData[i].price;
     var curID = productData[i].category_id;
     //Lists the products from the JSON file
-      DOMOutput.innerHTML += `<article><section>${curProduct}</section>`;
-      DOMOutput.innerHTML += `<section>${curPrice}</section>`;
-      DOMOutput.innerHTML += `<footer>${IDTest(curID, category)}</footer>`;
+    //Using this format to wrap sections in article tag correctly
+      DOMOutput.innerHTML += `<article><section class='product'>${curProduct}</section>
+      <section class='price'>${curPrice}</section>
+      <footer class='genre'>${IDTest(curID, category)}</footer>
+      </article>`
+      
         function IDTest (productID, category) {
           for (var i = 0; i < category.length; i++) {
             if (productID === category[i].id){

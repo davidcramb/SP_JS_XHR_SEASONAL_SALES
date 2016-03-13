@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+  font-family: arial;
+}
+
+#container {
+  text-align: left;
+  width: 800px auto;
+  margin: 0 auto;
+}
+
+article {
+  width: 250%;
+  margin: 1em;
+  padding: .25em;
+}
+
+.product {
+  font-size: 1.15em;
+  font-weight: 600;
+}
+.price {
+  font-size: 0.75em;
+}
+.genre {
+  font-style: italic;
+}
