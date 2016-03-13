@@ -2,6 +2,7 @@ var prodRequest = new XMLHttpRequest();
 var catRequest = new XMLHttpRequest();
 var products; // empty on load
 var category;
+
 // Function to output products onto the page
 function listProdInfo (productData) {
   var DOMOutput = document.getElementById('container');
@@ -12,7 +13,7 @@ function listProdInfo (productData) {
     //Lists the products from the JSON file
       DOMOutput.innerHTML += `<article><section>${curProduct}</section>`;
       DOMOutput.innerHTML += `<section>${curPrice}</section>`;
-      DOMOutput.innerHTML += `<footer>${IDTest(curID, category)}</footer>`
+      DOMOutput.innerHTML += `<footer>${IDTest(curID, category)}</footer>`;
         function IDTest (productID, category) {
           for (var i = 0; i < category.length; i++) {
             if (productID === category[i].id){
@@ -21,6 +22,13 @@ function listProdInfo (productData) {
           };
         };
   }; //end of first for loop
+};
+
+function listDiscounts(discount) {
+  var DOMOutput = document.getElementById('discountSelect');
+  for (var i = 0; i < discount.length; i++) {
+    DOMOutput.innerHTML += `<option>${discount[i].season_discount}</option>`;
+  };
 };
 
 
@@ -45,7 +53,9 @@ function executeJSONs() {
     function executeCategory () {
     var data = JSON.parse(this.responseText);
     category = data.categories;
-    listProdInfo(products)
+
+    listProdInfo(products);
+    listDiscounts(category);
     };
 };
 executeJSONs()
