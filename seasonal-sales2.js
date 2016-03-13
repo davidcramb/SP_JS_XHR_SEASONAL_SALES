@@ -10,7 +10,7 @@ function listProdInfo (productData) {
     var curID = productData[i].category_id;
       DOMOutput.innerHTML += `<article><section>${curProduct}</section>`;
       DOMOutput.innerHTML += `<section>${curPrice}</section>`;
-      DOMOutput.innerHTML += IDTest(curID, category)
+      DOMOutput.innerHTML += `<footer>${IDTest(curID, category)}</footer>`
         function IDTest (productID, category) {
 
           for (var i = 0; i < category.length; i++) {
